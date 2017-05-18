@@ -1,4 +1,4 @@
-class Cocktail < ApplicationRecord
+class Ingredient < ApplicationRecord
   has_many :doses, dependent: :destroy
   has_many :ingredients
 
