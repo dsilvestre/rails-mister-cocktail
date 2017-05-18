@@ -23,7 +23,7 @@ class DosesController < ApplicationController
 
     respond_to do |format|
       if @dose.save
-        format.html { redirect_to @dose, notice: 'Dose was successfully created.' }
+        format.html { redirect_to cocktail_path(@dose.cocktail), notice: 'Dose was successfully created.' }
         format.json { render :show, status: :created, location: @dose }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class DosesController < ApplicationController
   def destroy
     @dose.destroy
     respond_to do |format|
-      format.html { redirect_to doses_url, notice: 'Dose was successfully destroyed.' }
+      format.html { redirect_to cocktail_path(@dose.cocktail), notice: 'Dose was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -60,7 +60,7 @@ class DosesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dose_params
-      params.require(:dose).permit(:description)
+      params.require(:dose).permit(:description, :cocktail_id, :ingredient_id)
     end
 
 end
