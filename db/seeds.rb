@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Ingredient.create(name: "lemon")
+# Ingredient.create(name: "ice")
+# Ingredient.create(name: "mint leaves")
+
+# request_uri = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# request_query = ''
+# url = "#{request_uri}#{request_query}"
+# buffer = open(url).read
+# result = JSON.parse(buffer)
+# result = result.sample(5)
+
+# result.each do |user|
+#   puts "#{user['id']}\t#{user['name']}\t#{user['email']}"
+#   puts "Registered: #{user['created_at']}\n\n"
+# end

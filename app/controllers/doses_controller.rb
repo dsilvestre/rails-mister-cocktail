@@ -9,6 +9,7 @@ class DosesController < ApplicationController
   end
 
   def new
+    @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new
   end
 
@@ -17,6 +18,8 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new(dose_params)
+
+    @dose.cocktail = Cocktail.find(params[:cocktail_id])
 
     respond_to do |format|
       if @dose.save
@@ -57,7 +60,7 @@ class DosesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dose_params
-      params.require(:dose).permit(:name)
+      params.require(:dose).permit(:description)
     end
 
 end
