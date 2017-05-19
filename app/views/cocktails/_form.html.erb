@@ -1,22 +1,21 @@
-<%= form_with(model: cocktail, local: true) do |form| %>
-  <% if cocktail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
+<div class="container text-center">
 
-      <ul>
+  <%= simple_form_for @cocktail do |f| %>
+  <% if cocktail.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
+
+    <ul>
       <% cocktail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :cocktail_name %>
-  </div>
+  <%= f.input :name, label: 'Name', error: 'Cocktail name is mandatory, please specify one' %>
+  <br>
+  <%= f.button :submit %>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
