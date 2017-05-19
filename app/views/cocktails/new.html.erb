@@ -2,14 +2,12 @@
 
 <br>
 
-<%= render 'form', cocktail: @cocktail %>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <%= render 'form', cocktail: @cocktail %>
       <button class="btn" type="button"> <%= link_to 'Back', cocktails_path %> </button>
     </div>
-
   </div>
 </div>
 
