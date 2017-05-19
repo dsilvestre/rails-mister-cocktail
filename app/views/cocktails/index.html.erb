@@ -1,28 +1,23 @@
 <%= render 'shared/banner'  %>
 
-<p id="notice"><%= notice %></p>
+<br>
 
-<h1>Cocktails</h1>
+<div class="container">
+  <div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <% @cocktails.each do |c| %>
 
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail %></td>
-        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-xs-12 col-sm-4">
+
+      <%= render 'shared/cocktail_thumb', cocktail: c %>
+      <br>
+    </div>
+
     <% end %>
-  </tbody>
-</table>
+
+
+  </div>
+</div>
 
 <br>
 
